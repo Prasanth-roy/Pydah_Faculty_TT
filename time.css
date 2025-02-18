@@ -314,6 +314,22 @@ html{
 
 /* Make table scrollable on small screens */
 @media only screen and (max-width: 768px) {
+    .timetable {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        width: max-content;
+        min-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Make table scrollable on small screens */
+@media only screen and (max-width: 768px) {
     .timetable table {
         display: block;
         width: 100%;
