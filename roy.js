@@ -131,30 +131,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("downloadPDF").addEventListener("click", function () {
+    const { jsPDF } = window.jspdf; // ✅ Correct way to use jsPDF
+
+    let doc = new jsPDF();
+    doc.text("Faculty Timetable", 10, 10);
+    doc.save("faculty_timetable.pdf");
+});
+
+document.getElementById("downloadPDF").addEventListener("click", function () {
     const { jsPDF } = window.jspdf;
     let doc = new jsPDF();
 
-    let facultyName = document.getElementById("facultyName").textContent;
-    doc.text(facultyName, 10, 10);
+    doc.text("Faculty Timetable", 10, 10);
 
-    let rows = [];
-    document.querySelectorAll("#weeklyData tr").forEach(row => {
-        let rowData = [];
-        row.querySelectorAll("td").forEach(cell => {
-            rowData.push(cell.textContent);
-        });
-        rows.push(rowData);
-    });
-
+    // 🔹 AutoTable Plugin Use cheyyi
     doc.autoTable({
-        head: [["Day", "Subject", "Time Slot"]],
-        body: rows,
-        startY: 20,
+        html: "#weeklyTimetable table", // ✅ Table ni directly PDF ki add cheyyi
+        startY: 20, 
         theme: "grid"
     });
 
-    // Directly trigger download without a popup
-    doc.save(${facultyName}_timetable.pdf);
+    doc.save("faculty_timetable.pdf");
 });
 
 
