@@ -311,3 +311,39 @@ html{
         }
     }
 }
+
+/* Make table scrollable on small screens */
+@media only screen and (max-width: 768px) {
+    .timetable table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap; /* Prevents text wrapping */
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Adjust font size for extra small screens */
+    @media only screen and (max-width: 480px) {
+        th, td {
+            font-size: 12px;
+            padding: 6px;
+        }
+    }
+}
+
+/* Improve Navigation */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
