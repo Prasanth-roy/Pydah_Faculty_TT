@@ -25,6 +25,26 @@ nav ul li {
     display: inline;
     margin: 0 15px;
 }
+/* Ensure table is fully visible and scrollable on small screens */
+@media only screen and (max-width: 768px) {
+    .timetable {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
 
 nav ul li a {
     color: white;
